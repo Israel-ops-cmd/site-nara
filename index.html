@@ -122,6 +122,8 @@ section{position:relative;padding:clamp(5rem,11vw,9rem) 0}
 #intro .phrase{font-family:var(--serif);font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.05;max-width:11ch;opacity:0}
 #intro .phrase em{color:var(--terra)}
 html:not(.is-loading) #intro{display:none}
+html.is-loading #intro .ist{opacity:0}
+html.is-loading #spine{stroke-dasharray:220;stroke-dashoffset:220}
 
 /* header */
 .top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem var(--gutter);transition:background var(--d1) var(--ease),transform var(--d1) var(--ease)}
@@ -363,7 +365,12 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
 <script>
   document.documentElement.classList.add('js');
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.remove('is-loading');
-  setTimeout(function(){ document.documentElement.classList.remove('is-loading'); }, 3500);
+  (function(){
+    function drop(){ document.documentElement.classList.remove('is-loading'); }
+    /* só libera sem animação se o GSAP não carregar */
+    window.addEventListener('load', function(){ setTimeout(function(){ if (!window.gsap) drop(); }, 1200); });
+    setTimeout(function(){ if (!window.gsap) drop(); }, 9000);
+  })();
 </script>
 </head>
 <body>
@@ -786,7 +793,7 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
         .to(intro, { clipPath: 'circle(0% at 50% 42%)', duration: .9, ease: 'expo.inOut' }, 1.7)
         .add(heroIn, 1.95);
       gsap.set(intro, { clipPath: 'circle(150% at 50% 42%)' });
-      setTimeout(function(){ if (!finished) { intro.style.display = 'none'; gsap.set(['.hero h1 .wd > span','.hero .rv','.arch','.figure .person','.arch-stones .stones i','.seal'], { clearProps: 'all' }); release(); } }, 3400);
+      setTimeout(function(){ if (!finished && it.time() < 1) { intro.style.display = 'none'; gsap.set(['.hero h1 .wd > span','.hero .rv','.arch','.figure .person','.arch-stones .stones i','.seal'], { clearProps: 'all' }); release(); } }, 6000);
     } else { heroIn(); release(); }
 
     /* fundo que esquenta entre seções */
