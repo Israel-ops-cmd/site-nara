@@ -171,7 +171,8 @@ html:not(.is-loading) #intro{display:none}
 .figure .arch-stones .stones i{background:var(--creme);box-shadow:0 2px 0 rgba(0,0,0,.08)}
 .seal{position:absolute;right:-6%;top:58%;width:132px;height:132px;z-index:4;border-radius:50%;background:var(--creme);box-shadow:0 8px 24px rgba(30,43,36,.12)}
 .seal svg{width:100%;height:100%}
-.seal text{font:500 9.5px var(--sans);letter-spacing:.2em;fill:var(--texto);text-transform:uppercase}
+.seal text{font:600 8.4px var(--sans);letter-spacing:0;fill:var(--texto);text-transform:uppercase}
+.seal .ring{fill:none;stroke:rgba(30,43,36,.18);stroke-width:.6}
 
 /* marquee */
 .marquee{overflow:hidden;padding:1.4rem 0;border-top:1px solid rgba(30,43,36,.12);border-bottom:1px solid rgba(30,43,36,.12)}
@@ -312,7 +313,7 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
 /* revelações (estado inicial só com JS ativo) */
 .js .rv{opacity:0;transform:translateY(-18px)}
 .js .rv-img{clip-path:inset(0 0 100% 0 round 28px)}
-.split .wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.split .wd{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .08em .24em;margin:0 -.08em -.24em}
 .split .wd > span{display:inline-block}
 
 /* responsivo */
@@ -414,7 +415,7 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
     <div class="wrap">
       <div class="hero-txt">
         <h1 class="split"><span class="line">Cada toque tem</span> <span class="line">um <em>propósito.</em></span></h1>
-        <p class="lead rv">Massoterapia humanizada na Cidade Alta, em Natal, desde 2016. Uma hora só sua, que começa no escalda-pés e termina sem pressa.</p>
+        <p class="lead rv">Massoterapia humanizada na Cidade Alta, em Natal, desde 2016. Um tempo só seu, que começa no escalda-pés e termina sem pressa.</p>
         <div class="ctas rv">
           <a class="btn btn--wa magnetic" data-wa href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa-icon"/></svg>Agendar pelo WhatsApp</a>
           <a class="link" href="#onde">Ver como chegar</a>
@@ -427,8 +428,9 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
         <div class="shadow"></div>
         <img class="person" src="/img/01-hero-700.webp" srcset="/img/01-hero-700.webp 700w, /img/01-hero-1200.webp 992w" sizes="(max-width: 860px) 80vw, 40vw" width="700" height="1013" alt="Nára Perêira sorrindo, de jaleco vinho com a flor de lótus bordada, segurando um frasco de óleo" fetchpriority="high">
         <div class="seal" aria-hidden="true">
-          <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
-            <g class="seal-rot" style="transform-origin:60px 60px"><text><textPath href="#circ" textLength="286" lengthAdjust="spacing">massoterapia humanizada · natal rn · desde 2016 ·</textPath></text></g>
+          <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <circle class="ring" cx="60" cy="60" r="33"/>
+            <g class="seal-rot"><text><textPath href="#circ" textLength="274" lengthAdjust="spacing">Massoterapia&#160;&#160;•&#160;&#160;Natal RN&#160;&#160;•&#160;&#160;Desde 2016&#160;&#160;•&#160;&#160;</textPath></text></g>
             <ellipse cx="60" cy="52" rx="8" ry="5" fill="#387A5B"/><ellipse cx="60" cy="61" rx="9.5" ry="5.5" fill="#387A5B"/><ellipse cx="60" cy="71" rx="11" ry="6" fill="#387A5B"/>
           </svg>
         </div>
@@ -452,7 +454,7 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
       </div>
       <ul class="pains">
         <li class="rv"><span class="stones" aria-hidden="true"><i></i><i></i><i></i></span><div><strong>O pescoço e a cervical pesam no fim do dia</strong>Horas no computador ou no celular deixam os ombros duros. A sessão trabalha justamente esses pontos de tensão.</div></li>
-        <li class="rv"><span class="stones" aria-hidden="true"><i></i><i></i><i></i></span><div><strong>A cabeça não desliga</strong>Uma hora de toque, aroma e silêncio para o corpo entender que pode descansar.</div></li>
+        <li class="rv"><span class="stones" aria-hidden="true"><i></i><i></i><i></i></span><div><strong>A cabeça não desliga</strong>Um tempo de toque, aroma e silêncio para o corpo entender que pode descansar.</div></li>
         <li class="rv"><span class="stones" aria-hidden="true"><i></i><i></i><i></i></span><div><strong>O corpo parece pesado e inchado</strong>A drenagem linfática usa movimentos leves para a sensação de leveza voltar.</div></li>
       </ul>
     </div>
@@ -493,8 +495,7 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
           <div><h3>Escalda-pés</h3><p>Água morna e ervas para começar a sessão. É o primeiro sinal de que você pode desligar.</p></div>
         </article>
       </div>
-      <p class="tec-more rv">Também faço massagem crânio-facial, massagem 360, drenodetox, modeladora, limpeza de pele, plástica dos pés, Reiki e o Protocolo Pele Aveludada (esfoliação, óleos vegetais com lavanda e massagem relaxante). Pergunte pelo WhatsApp qual combina com você.</p>
-      <!-- [CONFIRMAR] lista final de técnicas com a cliente -->
+      <p class="tec-more rv">Não sabe qual escolher? Me conta pelo WhatsApp o que você está sentindo e eu te ajudo a decidir.</p>
     </div>
   </section>
 
@@ -565,7 +566,6 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
           <li>Graduanda em acupuntura</li>
           <li>Atendimento humanizado</li>
         </ul>
-        <!-- [CONFIRMAR] nome do curso e da instituição de formação -->
       </div>
     </div>
   </section>
@@ -578,12 +578,11 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
         <div class="score rv"><span class="num" id="score">4,9</span><small>de 5 no Google, com 48 avaliações</small></div>
       </div>
       <div class="quotes">
-        <figure class="quote rv" style="margin:0"><blockquote>"A melhor massagem que já fiz! Sou do RJ e só vim passar 5 dias aqui, mas preciso voltar nela antes de ir."</blockquote><figcaption><cite>Mônica, no Google</cite></figcaption></figure>
+        <figure class="quote rv" style="margin:0"><blockquote>"A melhor massagem que já fiz! Sou do RJ e só vim passar 5 dias aqui, mas preciso voltar nela antes de ir."</blockquote><figcaption><cite>Avaliação no Google</cite></figcaption></figure>
         <figure class="quote rv" style="margin:0"><blockquote>"Experiência muito boa, começando pelo escalda-pés e uma massagem revigorante!"</blockquote><figcaption><cite>Avaliação no Google</cite></figcaption></figure>
-        <figure class="quote rv" style="margin:0"><blockquote>"Excelente atendimento, uma profissional incrível, superando todas as minhas expectativas."</blockquote><figcaption><cite>Ricardo, no Google</cite></figcaption></figure>
+        <figure class="quote rv" style="margin:0"><blockquote>"Excelente atendimento, uma profissional incrível, superando todas as minhas expectativas."</blockquote><figcaption><cite>Avaliação no Google</cite></figcaption></figure>
       </div>
       <p class="rv" style="margin-top:2rem"><a class="link" href="https://www.google.com/maps/search/?api=1&query=Massoterapeuta%20Nara%20Galeria%20Princesa%20Isabel%20Natal" target="_blank" rel="noopener">Ler todas as avaliações no Google</a></p>
-      <!-- [CONFIRMAR] autorização para citar avaliações com o primeiro nome -->
     </div>
   </section>
 
@@ -609,7 +608,6 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
       <div>
         <h2 class="split">No coração da <em>Cidade Alta.</em></h2>
         <p class="rv" style="margin-top:1.4rem">Galeria Princesa Isabel<br>R. Princesa Isabel, 523, Cidade Alta<br>Natal RN, 59025-400</p>
-        <!-- [CONFIRMAR] número da sala: 105 (Linktree) ou 315 (Google) -->
         <ul class="hours rv">
           <li><span>Segunda a quarta</span><span>9h às 18h30</span></li>
           <li><span>Quinta e sexta</span><span>8h às 18h30</span></li>
@@ -842,7 +840,7 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
     } });
 
     /* selo girando, acelera com a rolagem */
-    var rot = gsap.to('.seal-rot', { rotation: 360, duration: 24, ease: 'none', repeat: -1 });
+    var rot = gsap.to('.seal-rot', { rotation: 360, svgOrigin: '60 60', duration: 24, ease: 'none', repeat: -1 });
     ST.create({ start: 0, end: 'max', onUpdate: function(self){
       var v = Math.min(Math.abs(self.getVelocity()) / 300, 6);
       gsap.to(rot, { timeScale: 1 + v, duration: .6, overwrite: true });
