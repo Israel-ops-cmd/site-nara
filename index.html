@@ -759,15 +759,15 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
     /* estados iniciais da hero */
     gsap.set('.hero h1 .wd > span', { yPercent: -110 });
     gsap.set('.hero .rv', { opacity: 0, y: -18 });
-    gsap.set('.arch', { clipPath: 'inset(100% 0 0 0 round 999px 999px 18px 18px)' });
+    gsap.set('.arch', { clipPath: 'inset(100% 0% 0% 0%)' });
     gsap.set('.figure .person', { y: 40, opacity: 0 });
     gsap.set('.arch-stones .stones i', { y: -30, opacity: 0 });
     gsap.set('.seal', { opacity: 0, scale: .8 });
 
     function heroIn(){
       var tl = gsap.timeline({ defaults: { ease: EASE } });
-      tl.to('.arch', { clipPath: 'inset(0% 0 0 0 round 999px 999px 18px 18px)', duration: 1.2 }, 0)
-        .to('.figure .person', { y: 0, opacity: 1, duration: 1.2 }, .15)
+      tl.to('.arch', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1 }, 0)
+        .to('.figure .person', { y: 0, opacity: 1, duration: 1.1 }, .35)
         .to('.arch-stones .stones i', { y: 0, opacity: 1, duration: .9, stagger: .12 }, .3)
         .to('.hero h1 .wd > span', { yPercent: 0, duration: 1.2, stagger: .06 }, .1)
         .to('.hero .rv', { opacity: 1, y: 0, duration: .9, stagger: .12 }, .5)
@@ -821,7 +821,7 @@ footer .legal{grid-column:1/-1;font-size:.9rem;opacity:.7;margin-top:2rem}
       gsap.to(el, { opacity: 1, y: 0, duration: .9, ease: EASE, scrollTrigger: { trigger: el, start: 'top 90%' } });
     });
     gsap.utils.toArray('.rv-img').forEach(function(el){
-      gsap.fromTo(el, { clipPath: 'inset(0 0 100% 0 round 28px)' }, { clipPath: 'inset(0 0 0% 0 round 28px)', duration: 1.2, ease: EASE,
+      gsap.fromTo(el, { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.2, ease: EASE,
         scrollTrigger: { trigger: el, start: 'top 85%' }, onComplete: function(){ el.style.clipPath = 'none'; } });
       var img = el.querySelector('img');
       if (img) gsap.fromTo(img, { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true } });
